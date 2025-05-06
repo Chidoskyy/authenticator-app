@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Protected</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ontainer">
+    <h2>Protected Route</h2>
+    <button id="access-protected">Access Protected Route</button>
+    <p>
+        <a href="index.html">Go to Login</a><br>
+        <a href="register.html">Go to Register</a>
+    </p>
+    
+    <div id="protected-message"></div>
+  </div>
+
+  <script>
+    document.getElementById('access-protected').addEventListener('click', async () => {
+      const token = localStorage.getItem('token');
+
+      if (!token) {
+        alert('You need to log in first.');
+        return;
+      }
+
+      const response = await fetch('http://localhost:5000/api/auth/protected', {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        document.getElementById('protected-message').innerText = data.message;
+      } else {
+        alert(data.message);
+      }
+    });
+  </script>
+</body>
+</html>
