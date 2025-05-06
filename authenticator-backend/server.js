@@ -3,10 +3,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const uri = process.env.MONGO_URI;
 
 dotenv.config();
 
 const app = express();
+app.get('/', (req, res) => {
+    res.send('API is running...');
+  });
+  
 
 // Middlewares
 app.use(cors());
