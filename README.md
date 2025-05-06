@@ -1,4 +1,4 @@
-# 🔐 Muveet Authentication Web App
+# 🔐 Authentication Web App
 
 This is a simple authentication web app built with a **vanilla HTML/CSS/JavaScript frontend**, **Node.js + Express backend**, and a **MongoDB database**.
 
