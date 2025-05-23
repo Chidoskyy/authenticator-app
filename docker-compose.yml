@@ -11,7 +11,7 @@ services:
 
   backend:
     build: ./authenticator-backend
-    image: yourdockerhubusername/authenticator-backend:latest
+    image: chidoskyy/authenticator-backend:latest
     ports:
       - "5000:5000"
     environment:
