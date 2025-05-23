@@ -1,7 +1,7 @@
-
 services:
   frontend:
     build: ./authenticator-frontend
+    image: chidoskyy/authenticator-frontend:latest
     ports:
       - "3000:3000"
     depends_on:
@@ -11,6 +11,7 @@ services:
 
   backend:
     build: ./authenticator-backend
+    image: yourdockerhubusername/authenticator-backend:latest
     ports:
       - "5000:5000"
     environment:
